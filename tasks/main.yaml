@@ -1,4 +1,6 @@
 ---
+- include: tasks/tinc-common.yaml
+
 - name: Copy tinc hosts
   copy: src=files{{ item }} dest={{ item }} mode=0644
   with_items:
