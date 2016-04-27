@@ -1,0 +1,8 @@
+#!/bin/bash
+
+ip addr add {{ lan }} dev vpn
+ip addr add {{ ula }} dev vpn
+ip link set vpn up
+
+ip route add {{ lannet }} via {{ langw }} dev vpn
+ip route add {{ ulanet }} via {{ ulagw }} dev vpn
