@@ -1,0 +1,10 @@
+Name = {{ inventory_hostname }}
+AddressFamily = any
+BindToInterface = eth0
+Device = /dev/net/tun
+Mode = switch
+KeyExpire = 3600
+PrivateKeyFile = /etc/tinc/vpn/rsa_key.priv
+{% for host in vpn_hosts %}
+ConnectTo = {{ host }}
+{% endfor %}
