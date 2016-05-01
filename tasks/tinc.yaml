@@ -1,0 +1,14 @@
+- name: Configure Tinc
+  copy:
+    src: ../../files/{{ inventory_hostname }}{{ item }}
+    dest: {{ item }}
+    mode: 0644
+  notify: Restart tinc
+  with_items:
+    - /etc/tinc/vpn/rsa_key.priv
+
+- name: Configure Tinc
+  template: src=templates/{{ item }}.j2 dest={{ item }} mode=0640
+  notify: Restart tinc
+  with_items:
+    - /etc/tinc/vpn/tinc.conf
