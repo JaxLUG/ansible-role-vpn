@@ -1,4 +1,6 @@
 ---
+- include: tasks/tinc.yaml
+
 - include: tasks/tinc-common.yaml
 
 - include: tasks/tinc-hosts.yaml
