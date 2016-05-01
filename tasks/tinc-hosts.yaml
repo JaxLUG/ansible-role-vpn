@@ -1,0 +1,7 @@
+---
+- name: Install tinc hosts
+  template:
+    src: templates//etc/tinc/vpn/hosts/{{ item }}.j2
+    dest: /etc/tinc/vpn/hosts/{{ item }}
+    mode: 0644
+  notify: Restart tinc
