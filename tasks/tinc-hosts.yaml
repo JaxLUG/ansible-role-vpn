@@ -1,7 +1,8 @@
 ---
 - name: Install tinc hosts
   template:
-    src: templates//etc/tinc/vpn/hosts/{{ item }}.j2
+    src: templates/etc/tinc/vpn/hosts/host.j2
     dest: /etc/tinc/vpn/hosts/{{ item }}
     mode: 0644
   notify: Restart tinc
+  with_items: {{ vpn_hosts }}
