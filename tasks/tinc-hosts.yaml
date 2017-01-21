@@ -1,5 +1,6 @@
 ---
 - name: Install tinc hosts
+  tags: tinc_hosts
   template:
     src: templates/etc/tinc/vpn/hosts/host.j2
     dest: /etc/tinc/vpn/hosts/{{ item }}
