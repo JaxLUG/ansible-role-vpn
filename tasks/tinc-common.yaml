@@ -1,16 +1,19 @@
 - name: Set tinc network name
+  tags: tinc
   copy: src=roles/vpn/files{{ item }} dest={{ item }}  mode=0644
   notify: Restart tinc
   with_items:
     - /etc/conf.d/tinc.networks
 
 - name: Install tinc-down script
+  tags: tinc
   copy: src=roles/vpn/files{{ item }} dest={{ item }} mode=0755
   notify: Restart tinc
   with_items:
     - /etc/tinc/vpn/tinc-down
 
 - name: Install tinc-up script
+  tags: tinc
   template: src=templates/{{ item }}.j2 dest={{ item }} mode=0755
   notify: Restart tinc
   with_items:
