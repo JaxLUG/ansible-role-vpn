@@ -1,4 +1,5 @@
 - name: Configure Tinc
+  tags: tinc
   copy:
     src: ../../files/{{ inventory_hostname }}{{ item }}
     dest: {{ item }}
@@ -8,6 +9,7 @@
     - /etc/tinc/vpn/rsa_key.priv
 
 - name: Configure Tinc
+  tags: tinc
   template: src=templates/{{ item }}.j2 dest={{ item }} mode=0640
   notify: Restart tinc
   with_items:
